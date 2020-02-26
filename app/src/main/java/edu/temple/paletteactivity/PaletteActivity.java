@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PaletteActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    ListView simpleList;
 
     public String [] color = {"Select","Red","Yellow","Blue","Green","Gray","Magenta","Cyan","Black","Maroon","Olive","Purple"};
 
@@ -54,12 +53,9 @@ public class PaletteActivity extends AppCompatActivity implements AdapterView.On
             Intent canvasA = new Intent(this, CanvasActivity.class);
             canvasA.putExtra("position",position);
             startActivity(canvasA);
-            //View secondB = findViewById(R.id.secondL);
-            //secondB.setBackgroundColor(Color.parseColor(color[position]));
+
         }
-        /*View background = findViewById(R.id.mainL);
-        background.setBackgroundColor(Color.parseColor(color[position]));
-*/
+
     }
 
     @Override
