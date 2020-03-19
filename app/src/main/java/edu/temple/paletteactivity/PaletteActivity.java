@@ -1,6 +1,7 @@
 package edu.temple.paletteactivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +15,18 @@ import androidx.appcompat.app.AppCompatActivity;
 public class PaletteActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
-    public String [] color = {"Select","Red","Yellow","Blue","Green","Gray","Magenta","Cyan","Black","Maroon","Olive","Purple"};
+    public String [] coloren = {"Select","Red","Yellow","Blue","Green","Gray","Magenta","Cyan","Black","Maroon","Olive","Purple"};
 
-    int size = color.length;
+
+    //int l = color.length;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Resources res = getResources();
+        String[] color = res.getStringArray(R.array.string_array_color);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -33,17 +40,18 @@ public class PaletteActivity extends AppCompatActivity implements AdapterView.On
         View background = findViewById(R.id.mainL);
         background.setBackgroundColor(Color.WHITE);
 
-
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Resources res = getResources();
+        String[] color = res.getStringArray(R.array.string_array_color);
         if(position <1) {
 
         }else{
             TextView colorNames = view.findViewById(R.id.textView);
             colorNames.setText(color[position]);
-            colorNames.setTextColor(Color.parseColor(color[position]));
+            colorNames.setTextColor(Color.parseColor(coloren[position]));
             colorNames.setBackgroundColor(Color.WHITE);
 
         }

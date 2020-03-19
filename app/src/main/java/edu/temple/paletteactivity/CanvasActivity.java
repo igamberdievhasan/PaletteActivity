@@ -3,6 +3,7 @@ package edu.temple.paletteactivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,8 @@ public class CanvasActivity extends PaletteActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        Resources res = getResources();
+        String[] color = res.getStringArray(R.array.string_array_color);
         setTitle("Canvas Activity");
 
         super.onCreate(savedInstanceState);
@@ -24,13 +26,13 @@ public class CanvasActivity extends PaletteActivity {
         colorName.setText(color[position]);
         colorName.setTextSize(48);
 
-        if(color[position].equals("Black")){
+        if(color[position].equals("Negro") || color[position].equals("Black")){
             colorName.setTextColor(Color.WHITE);
         }else {
             colorName.setTextColor(Color.BLACK);
         }
         View secondB = findViewById(R.id.secondL);
-        secondB.setBackgroundColor(Color.parseColor(color[position]));
+        secondB.setBackgroundColor(Color.parseColor(coloren[position]));
 
     }
 }

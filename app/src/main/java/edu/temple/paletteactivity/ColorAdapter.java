@@ -37,7 +37,7 @@ public class ColorAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        String [] coloren = {"Select","Red","Yellow","Blue","Green","Gray","Magenta","Cyan","Black","Maroon","Olive","Purple"};
         convertView = inflter.inflate(R.layout.list_view, null);
 
         TextView colorNames = convertView.findViewById(R.id.textView);
@@ -47,10 +47,10 @@ public class ColorAdapter extends BaseAdapter {
 
         }else{
             colorNames.setText(color[position]);
-            colorNames.setBackgroundColor(Color.parseColor(color[position]));
+            colorNames.setBackgroundColor(Color.parseColor(coloren[position]));
         }
 
-        if(color[position].equals("Black")){
+        if(coloren[position].equals("Black")){
             colorNames.setTextColor(Color.WHITE);
         }
         return convertView;
